@@ -22,17 +22,17 @@
             <form class="space-y-4">
                 <div>
                     <label for="username" class="block text-sm font-medium text-black mb-2 ml-2">Name</label>
-                    <input type="text" id="username" placeholder="Kurniawan Saputra"
+                    <input type="text" id="username" placeholder="Kurniawan Saputra" value="{{ $name }}"
                         class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 text-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200">
                 </div>
                 <div>
                     <label for="email" class="block text-sm font-medium text-black mb-2 ml-2">Email</label>
-                    <input type="email" id="email" placeholder="Kurniawan@gmail.com"
+                    <input type="email" id="email" placeholder="Kurniawan@gmail.com" value="{{ $email }}"
                         class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 text-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200">
                 </div>
                 <div>
                     <label for="phone" class="block text-sm font-medium text-black mb-2 ml-2">Phone Number</label>
-                    <input type="tel" id="phone" placeholder="+62-857-3356-4180"
+                    <input type="tel" id="phone" placeholder="+62-857-3356-4180" value="{{ $phone }}"
                         class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 text-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200">
                 </div>
                 <div class="flex justify-end pt-2">
@@ -49,7 +49,7 @@
                 </div>
             </form>
             <div class="flex justify-center items-center mt-6">
-                <a href="{{ route('login') }}" wire:navigate
+                <button wire:click="logout"
                     class="flex items-center space-x-2 text-black hover:text-red-600 transition-colors duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" class="w-5 h-5">
@@ -57,7 +57,7 @@
                             d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
                     </svg>
                     <span class="text-base font-semibold">Log Out</span>
-                </a>
+                </button>
             </div>
         </div>
     </div>

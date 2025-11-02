@@ -3,7 +3,7 @@
         <div class="flex justify-between items-start">
             <div>
                 <h1 class="text-black font-bold text-lg md:text-2xl leading-tight">Selamat Datang!</h1>
-                <p class="text-black text-sm md:text-base mt-1 font-semibold">Kurniawan Saputra</p>
+                <p class="text-black text-sm md:text-base mt-1 font-semibold">{{ $name }}</p>
             </div>
             <img src="{{ asset('storage/images/Notifikasi Bell.png') }}" alt="Notifikasi"
                 class="w-5 h-5 md:w-7 md:h-7 mt-1 cursor-pointer hover:opacity-80 transition-opacity">
