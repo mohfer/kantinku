@@ -1,12 +1,7 @@
-<div class="flex justify-center bg-white min-h-screen">
-
-    <div
-        class="max-w-sm md:max-w-md lg:max-w-lg w-full px-6 md:px-8 pt-8 md:pt-12 lg:pt-16 pb-32 flex flex-col items-center text-center">
-
+<div class="flex h-screen items-center justify-center bg-white">
+    <div class="w-full flex flex-col items-center text-center">
         <h2 class="text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 lg:mb-8">Pesanan Anda sedang disiapkan</h2>
-
         <div class="flex justify-center items-center mb-6 md:mb-8 lg:mb-10 w-full max-w-xs md:max-w-sm lg:max-w-md">
-
             <div
                 class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center bg-gray-200 border-2 border-black rounded-full p-2 md:p-2.5 lg:p-3">
                 <svg class="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,9 +10,7 @@
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </div>
-
             <div class="w-12 md:w-16 lg:w-24 h-0.5 bg-black mx-3 md:mx-4 lg:mx-6"></div>
-
             <div
                 class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center bg-gray-200 border-2 border-black rounded-full p-2 md:p-2.5 lg:p-3">
                 <svg class="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,9 +29,7 @@
                         stroke-linejoin="round" />
                 </svg>
             </div>
-
             <div class="w-12 md:w-16 lg:w-24 h-0.5 bg-black mx-3 md:mx-4 lg:mx-6"></div>
-
             <div
                 class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center bg-gray-200 border-2 border-black rounded-full p-2 md:p-2.5 lg:p-3">
                 <svg class="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,9 +42,8 @@
                 </svg>
             </div>
         </div>
-
         <div
-            class="bg-gray-100 text-left p-5 md:p-6 lg:p-8 rounded-lg leading-relaxed w-full max-w-xs md:max-w-sm lg:max-w-md mx-auto text-sm md:text-base">
+            class="bg-gray-200 text-left p-5 md:p-6 lg:p-8 rounded-lg leading-relaxed w-full max-w-xs md:max-w-sm lg:max-w-md mx-auto text-sm md:text-base">
             <div class="flex justify-between mb-2">
                 <span>Nasi Goreng Special x1</span>
                 <span class="font-medium">Rp 15.000</span>
@@ -70,16 +60,16 @@
                 <span>Total Pembayaran</span>
                 <span>Rp 23.000</span>
             </div>
-            <div class="flex justify-between mt-3 pt-2 border-t border-gray-200">
-                <span>Metode Makan</span>
-                <span class="font-medium">Dine In</span>
+            <div class="mt-4">
+                <div class="flex justify-between mb-2">
+                    <span>Metode Makan</span>
+                    <span class="font-medium">Dine In</span>
+                </div>
+                <div class="flex justify-between mb-2">
+                    <span>Metode Pembayaran</span>
+                    <span class="font-medium">QRIS</span>
+                </div>
             </div>
         </div>
-
-        <a href="tel:081234567890"
-            class="inline-block mt-6 md:mt-8 px-6 md:px-8 py-3 md:py-3.5 rounded-lg bg-sky-400 hover:bg-sky-500 text-white font-semibold text-sm md:text-base transition-colors shadow-md">
-            📞 HUBUNGI WARUNG
-        </a>
-
     </div>
 </div>

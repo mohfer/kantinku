@@ -1,10 +1,8 @@
-<div class="flex justify-center bg-white min-h-screen">
+<div class="flex h-screen justify-center items-center bg-white">
     <div
-        class="max-w-sm md:max-w-md lg:max-w-lg w-full px-6 md:px-8 pt-8 md:pt-12 lg:pt-16 pb-32 flex flex-col items-center text-center">
-
+        class="w-full flex flex-col items-center text-center">
         <h2 class="text-xl md:text-2xl lg:text-3xl font-bold mb-2 text-black">Sedang diverifikasi</h2>
         <h3 class="text-xl md:text-2xl lg:text-3xl font-bold mb-6 md:mb-8 lg:mb-10 text-black">QRIS</h3>
-
         <div class="relative flex justify-center items-center mb-6 md:mb-8 lg:mb-10">
             <div
                 class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center bg-gray-200 rounded-full">
@@ -15,9 +13,7 @@
                         stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </div>
-
             <div class="w-12 md:w-16 lg:w-24 h-0.5 bg-black mx-3 md:mx-4 lg:mx-6"></div>
-
             <div
                 class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center bg-gray-200 rounded-full">
                 <svg class="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
@@ -27,16 +23,13 @@
                 </svg>
             </div>
         </div>
-
         <p class="text-base md:text-lg lg:text-xl font-semibold text-black mb-4 md:mb-6">Verifikasi selesai dalam 1–2
             menit</p>
-
         <div
             class="bg-gray-200 text-gray-800 rounded-lg p-4 md:p-5 lg:p-6 mb-4 md:mb-6 w-full leading-relaxed text-sm md:text-base">
             Bukti pembayaran berhasil diunggah.<br>
             Mohon tunggu konfirmasi dari kasir.
         </div>
-
         <button
             class="bg-sky-400 hover:bg-sky-500 text-white font-semibold py-3 md:py-3.5 lg:py-4 rounded-lg w-full shadow-md transition mb-4 text-sm md:text-base">
             Melihat Status Pesanan

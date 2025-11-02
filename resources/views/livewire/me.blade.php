@@ -6,7 +6,6 @@
                     My Profile
                 </h1>
             </header>
-
             <div class="relative w-[150px] h-[150px] mx-auto mt-8 mb-10">
                 <img class="w-full h-full rounded-full object-cover" src="https://placehold.co/150" alt="Profile Picture">
                 <button
@@ -20,33 +19,28 @@
                     </svg>
                 </button>
             </div>
-
             <form class="space-y-4">
                 <div>
                     <label for="username" class="block text-sm font-medium text-black mb-2 ml-2">Name</label>
                     <input type="text" id="username" placeholder="Kurniawan Saputra"
                         class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 text-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200">
                 </div>
-
                 <div>
                     <label for="email" class="block text-sm font-medium text-black mb-2 ml-2">Email</label>
                     <input type="email" id="email" placeholder="Kurniawan@gmail.com"
                         class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 text-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200">
                 </div>
-
                 <div>
                     <label for="phone" class="block text-sm font-medium text-black mb-2 ml-2">Phone Number</label>
                     <input type="tel" id="phone" placeholder="+62-857-3356-4180"
                         class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 text-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200">
                 </div>
-
                 <div class="flex justify-end pt-2">
                     <a href="{{ route('change-password') }}" wire:navigate
                         class="inline-flex items-center text-[#023E8A] hover:text-[#0077B6] font-medium text-sm underline transition-colors duration-200">
                         Change Password
                     </a>
                 </div>
-
                 <div class="pt-2">
                     <button type="button"
                         class="w-full h-[47px] bg-[#023E8A] hover:bg-blue-800 rounded-[30px] text-white text-base font-semibold transition-all duration-200 shadow-sm hover:shadow-md">
@@ -54,7 +48,6 @@
                     </button>
                 </div>
             </form>
-
             <div class="flex justify-center items-center mt-6">
                 <a href="{{ route('login') }}" wire:navigate
                     class="flex items-center space-x-2 text-black hover:text-red-600 transition-colors duration-200">
