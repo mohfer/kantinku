@@ -9,6 +9,7 @@ use App\Livewire\StatusPemesanan;
 
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
+use App\Livewire\ChangePassword;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/auth/login', Login::class);
@@ -20,3 +21,5 @@ Route::get('/pesanan', Pesanan::class);
 Route::get('/me', Me::class);
 Route::get('/verifikasi', Verifikasi::class);
 Route::get('/status-pemesanan', StatusPemesanan::class);
+
+Route::get('/change-password', ChangePassword::class);
