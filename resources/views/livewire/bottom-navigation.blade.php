@@ -28,7 +28,7 @@
         </a>
 
         <a href="/me" wire:navigate
-            class="flex flex-col items-center justify-center flex-1 py-2 {{ request()->is('me*') ? 'text-blue-600' : 'text-gray-600' }} hover:text-blue-600 transition-colors">
+            class="flex flex-col items-center justify-center flex-1 py-2 {{ request()->is('me*', 'change-password*') ? 'text-blue-600' : 'text-gray-600' }} hover:text-blue-600 transition-colors">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />

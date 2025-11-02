@@ -6,20 +6,19 @@ use App\Livewire\Warung;
 use App\Livewire\Pesanan;
 use App\Livewire\Verifikasi;
 use App\Livewire\StatusPemesanan;
-
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
 use App\Livewire\ChangePassword;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/auth/login', Login::class);
-Route::get('/auth/register', Register::class);
+Route::get('/auth/login', Login::class)->name('login');
+Route::get('/auth/register', Register::class)->name('register');
 
-Route::get('/', Home::class);
-Route::get('/warung', Warung::class);
-Route::get('/pesanan', Pesanan::class);
-Route::get('/me', Me::class);
-Route::get('/verifikasi', Verifikasi::class);
-Route::get('/status-pemesanan', StatusPemesanan::class);
+Route::get('/', Home::class)->name('home');
+Route::get('/warung', Warung::class)->name('warung');
+Route::get('/pesanan', Pesanan::class)->name('pesanan');
+Route::get('/me', Me::class)->name('me');
+Route::get('/verifikasi', Verifikasi::class)->name('verifikasi');
+Route::get('/status-pemesanan', StatusPemesanan::class)->name('status-pemesanan');
 
-Route::get('/change-password', ChangePassword::class);
+Route::get('/change-password', ChangePassword::class)->name('change-password');

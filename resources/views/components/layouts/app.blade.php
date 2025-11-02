@@ -9,10 +9,17 @@
 
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    {{ $slot }}
+    <div class="p-6">
+        {{ $slot }}
+    </div>
 
     @if (!request()->is('auth/login') && !request()->is('auth/register'))
         <livewire:bottom-navigation />
