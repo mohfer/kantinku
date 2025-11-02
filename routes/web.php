@@ -6,7 +6,7 @@ use App\Livewire\Warung;
 use App\Livewire\Pesanan;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
-use App\Livewire\Test;
+use App\Livewire\ChangePassword;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/auth/login', Login::class);
@@ -17,4 +17,4 @@ Route::get('/warung', Warung::class);
 Route::get('/pesanan', Pesanan::class);
 Route::get('/me', Me::class);
 
-Route::get('/test', Test::class);
+Route::get('/change-password', ChangePassword::class);
