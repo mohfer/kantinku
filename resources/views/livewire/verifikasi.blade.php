@@ -12,7 +12,7 @@
 </svg>
   </div>
 
-  <div class="w-16 h-[2px] bg-gray-400"></div>
+<div class="w-16 h-[3px] bg-black"></div>
 
   <div class="w-14 h-14 flex items-center justify-center bg-gray-200 rounded-full">
     <svg width="35" height="32" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
