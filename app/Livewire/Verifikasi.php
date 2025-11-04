@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Verifikasi extends Component
 {
-    public $title = 'Kantinku - Verifikasi Pembayaran';
+    public $title = 'Verifikasi Pembayaran';
 
     public function render()
     {

@@ -4,13 +4,13 @@ namespace App\Livewire\Auth;
 
 use Livewire\Component;
 
-class Register extends Component
+class ForgetPassword extends Component
 {
-    public $title = 'Register';
+    public $title = 'Forget Password';
 
     public function render()
     {
         view()->share('title', $this->title);
-        return view('livewire.auth.register');
+        return view('livewire.auth.forget-password');
     }
 }

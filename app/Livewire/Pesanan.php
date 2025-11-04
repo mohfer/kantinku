@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Pesanan extends Component
 {
-    public $title = 'Kantinku - Pesanan';
+    public $title = 'Pesanan';
 
     public function render()
     {

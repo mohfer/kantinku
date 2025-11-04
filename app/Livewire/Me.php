@@ -8,7 +8,7 @@ use Livewire\Attributes\Validate;
 
 class Me extends Component
 {
-    public $title = 'Kantinku - Me';
+    public $title = 'Me';
 
     #[Validate('required|string|max:255')]
     public $name = '';

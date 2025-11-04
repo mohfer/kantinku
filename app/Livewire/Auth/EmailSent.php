@@ -4,13 +4,13 @@ namespace App\Livewire\Auth;
 
 use Livewire\Component;
 
-class Register extends Component
+class EmailSent extends Component
 {
-    public $title = 'Register';
+    public $title = 'Email Sent';
 
     public function render()
     {
         view()->share('title', $this->title);
-        return view('livewire.auth.register');
+        return view('livewire.auth.email-sent');
     }
 }

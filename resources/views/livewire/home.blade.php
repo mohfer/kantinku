@@ -9,8 +9,10 @@
                     {{ $name }}
                 </p>
             </div>
-            <img src="{{ asset('storage/images/Notifikasi Bell.png') }}" alt="Notifikasi"
-                class="w-5 h-5 md:w-7 md:h-7 mt-1 cursor-pointer hover:opacity-80 transition-opacity">
+            <a href="{{ route('notifikasi') }}" wire:navigate>
+                <img src="{{ asset('storage/images/Notifikasi Bell.png') }}" alt="Notifikasi"
+                    class="w-5 h-5 md:w-7 md:h-7 mt-1 cursor-pointer hover:opacity-80 transition-opacity">
+            </a>
         </div>
         <div class="flex justify-center mt-4 mb-2">
             <img src="{{ asset('storage/images/Group 93.png') }}" alt="Logo Kantinku"
@@ -59,7 +61,8 @@
             </div>
         </section>
     </div>
-    <a href="{{ route('pesanan') }}" wire:navigate class="fixed bottom-20 left-4 right-4 z-50 bg-primary text-black rounded-2xl shadow-lg p-4 md:p-5 space-y-3">
+    <a href="{{ route('pesanan') }}" wire:navigate
+        class="fixed bottom-20 left-4 right-4 z-50 bg-primary text-black rounded-2xl shadow-lg p-4 md:p-5 space-y-3">
         <h3 class="text-lg font-semibold text-center mb-2">
             Pesanan Berlangsung
         </h3>

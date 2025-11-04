@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Warung extends Component
 {
-    public $title = 'Kantinku - Warung';
+    public $title = 'Warung';
 
     public function render()
     {

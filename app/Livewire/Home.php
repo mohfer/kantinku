@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Home extends Component
 {
-    public $title = 'Kantinku - Home';
+    public $title = 'Home';
 
     public $name = '';
 

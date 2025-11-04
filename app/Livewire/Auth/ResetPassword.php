@@ -4,13 +4,13 @@ namespace App\Livewire\Auth;
 
 use Livewire\Component;
 
-class Register extends Component
+class ResetPassword extends Component
 {
-    public $title = 'Register';
+    public $title = 'Reset Password';
 
     public function render()
     {
         view()->share('title', $this->title);
-        return view('livewire.auth.register');
+        return view('livewire.auth.reset-password');
     }
 }

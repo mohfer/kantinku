@@ -6,9 +6,11 @@ use Livewire\Component;
 
 class DetailProduct extends Component
 {
+    public $title = 'Detail Product';
+
     public function render()
     {
-        view()->share('title', 'KantinKu - Detail Product');
+        view()->share('title', $this->title);
         return view('livewire.detail-product');
     }
 }

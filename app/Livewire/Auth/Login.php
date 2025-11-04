@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Login extends Component
 {
-    public $title = 'Kantinku - Login';
+    public $title = 'Login';
 
     #[Validate('required|email')]
     public $email = '';
