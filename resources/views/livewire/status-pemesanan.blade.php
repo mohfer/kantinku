@@ -69,6 +69,12 @@
                     <span>Metode Pembayaran</span>
                     <span class="font-medium">QRIS</span>
                 </div>
+                <div class="mb-2">
+                    <span class="block font-semibold mb-1">Catatan</span>
+                    <div class="bg-gray-100 p-3 rounded-xl text-gray-800 text-sm italic border border-gray-200">
+                        “Saya ingin cabainya 5 dan itu cabai hijau semua”
+                    </div>
+                </div>
             </div>
         </div>
     </div>

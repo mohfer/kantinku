@@ -8,7 +8,7 @@
                 class="py-3 border-b-2 border-transparent text-gray-500 font-medium hover:text-gray-700">
                 Berlangsung
             </a>
-            <button class="py-3 border-b-2 border-cyan-500 text-cyan-500 font-medium">
+            <button class="py-3 border-b-2 border-primary font-medium">
                 Riwayat
             </button>
         </div>

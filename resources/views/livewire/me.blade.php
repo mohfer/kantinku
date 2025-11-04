@@ -37,13 +37,13 @@
                 </div>
                 <div class="flex justify-end pt-2">
                     <a href="{{ route('change-password') }}" wire:navigate
-                        class="inline-flex items-center text-[#023E8A] hover:text-[#0077B6] font-medium text-sm underline transition-colors duration-200">
+                        class="inline-flex items-center font-medium text-sm underline transition-colors duration-200">
                         Change Password
                     </a>
                 </div>
                 <div class="pt-2">
                     <button type="button"
-                        class="w-full h-[47px] bg-[#023E8A] hover:bg-blue-800 rounded-[30px] text-white text-base font-semibold transition-all duration-200 shadow-sm hover:shadow-md">
+                        class="w-full h-[47px] bg-primary hover:bg-secondary rounded-lg text-base font-semibold transition-all duration-200 shadow-sm hover:shadow-md">
                         Save
                     </button>
                 </div>

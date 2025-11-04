@@ -1,9 +1,18 @@
 <div class="mx-auto">
-    <header class="pb-6">
-        <h1 class="text-3xl font-bold text-center text-gray-800">Keranjang</h1>
+    <header class="pb-6 flex items-center justify-center relative">
+        <button onclick="history.back()" class="absolute left-0 ml-4 p-2 rounded-full hover:bg-gray-100 transition"
+            aria-label="Kembali">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                class="w-6 h-6 text-gray-800">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <h1 class="text-3xl font-bold text-center text-gray-800">
+            Keranjang
+        </h1>
     </header>
     <main class="space-y-5 pb-48">
-        <section class="flex items-center rounded-xl shadow-md p-4 space-x-4">
+        <section class="flex bg-gray-200 items-center rounded-xl shadow-md p-2 space-x-4">
             <img src="{{ asset('storage/images/NasiGorengSpesial.png') }}" alt="NasiGorengSpesial"
                 class="w-20 h-20 rounded-full object-cover border-2 border-white shadow-sm">
             <div class="flex-1">
@@ -12,11 +21,11 @@
             </div>
             <div class="flex items-center rounded-lg overflow-hidden shadow-sm">
                 <button class="bg-primary text-black p-2 flex items-center justify-center h-8 w-8 font-bold">-</button>
-                <span class="bg-white text-black px-4 py-1 font-bold text-lg h-8 flex items-center">1</span>
+                <span class="bg-primary text-black px-4 py-1 font-bold text-lg h-8 flex items-center">1</span>
                 <button class="bg-primary text-black p-2 flex items-center justify-center h-8 w-8 font-bold">+</button>
             </div>
         </section>
-        <section class="flex items-center rounded-xl shadow-md p-4 space-x-4">
+        <section class="flex bg-gray-200 items-center rounded-xl shadow-md p-2 space-x-4">
             <img src="{{ asset('storage/images/MieGorengTelur.png') }}" alt="MieGorengTelur"
                 class="w-20 h-20 rounded-full object-cover border-2 border-white shadow-sm">
             <div class="flex-1">
@@ -25,7 +34,7 @@
             </div>
             <div class="flex items-center rounded-lg overflow-hidden shadow-sm">
                 <button class="bg-primary text-black p-2 flex items-center justify-center h-8 w-8 font-bold">-</button>
-                <span class="bg-white text-black px-4 py-1 font-bold text-lg h-8 flex items-center">1</span>
+                <span class="bg-primary text-black px-4 py-1 font-bold text-lg h-8 flex items-center">1</span>
                 <button class="bg-primary text-black p-2 flex items-center justify-center h-8 w-8 font-bold">+</button>
             </div>
         </section>
@@ -67,12 +76,13 @@
         </div>
     </main>
     <div class="fixed bottom-0 left-0 right-0 max-w-sm mx-auto mb-16">
-        <div class="bg-white p-4 border-gray-200 flex justify-between items-center">
+        <div class="bg-white p-4 border-gray-200 flex justify-between items-center rounded-lg">
             <div>
                 <span class="text-sm text-gray-600">Total</span>
                 <p class="font-bold text-xl text-gray-900">Rp 23.000</p>
             </div>
-            <a href="{{ route('status-pemesanan') }}" wire:navigate class="bg-primary text-black font-bold py-3 px-6 rounded-lg shadow-md">
+            <a href="{{ route('status-pemesanan') }}" wire:navigate
+                class="bg-primary text-black font-bold py-3 px-6 rounded-lg shadow-md">
                 Pesan Sekarang
             </a>
         </div>

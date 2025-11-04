@@ -2,13 +2,13 @@
     <div class="flex-1 flex items-center justify-center">
         <div class="w-full max-w-md">
             <header class="relative flex items-center justify-center mb-6">
-                <a href="{{ route('me') }}" wire:navigate
-                    class="absolute left-0 text-gray-800 hover:text-gray-600 transition-colors duration-200">
+                <button onclick="history.back()"
+                    class="absolute left-0 ml-4 p-2 rounded-full hover:bg-gray-100 transition" aria-label="Kembali">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                        stroke="currentColor" class="w-7 h-7">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                        stroke="currentColor" class="w-6 h-6 text-gray-800">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                     </svg>
-                </a>
+                </button>
                 <h1 class="text-2xl font-semibold text-black">
                     Edit Password
                 </h1>
@@ -71,7 +71,6 @@
                     <div class="relative">
                         <input type="password" id="new_password_confirmation" placeholder="Confirm new password"
                             class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 pr-12 text-sm text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200">
-
                         <button type="button"
                             class="absolute inset-y-0 right-0 flex items-center pr-4 text-gray-400 hover:text-gray-600 transition-colors duration-200">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -86,7 +85,7 @@
                 </div>
                 <div class="pt-4">
                     <button type="button"
-                        class="w-full h-[47px] bg-[#023E8A] hover:bg-blue-800 rounded-[30px] text-white text-base font-semibold transition-all duration-200 shadow-sm hover:shadow-md">
+                        class="w-full h-[47px] bg-primary hover:bg-secondary rounded-lg text-base font-semibold transition-all duration-200 shadow-sm hover:shadow-md">
                         Save
                     </button>
                 </div>

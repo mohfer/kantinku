@@ -41,16 +41,16 @@
                 </div>
                 <div class="pt-2">
                     <button
-                        class="w-full h-[47px] bg-[#023E8A] hover:bg-blue-800 text-white font-semibold rounded-[30px] transition-all duration-200 shadow-sm hover:shadow-md">
+                        class="w-full py-2 bg-primary hover:bg-secondary font-semibold rounded-md transition-all duration-200 shadow-sm hover:shadow-md">
                         Register
                     </button>
                 </div>
-                <div class="text-center pt-4">
+                <div class="text-start pt-4">
                     <p class="text-gray-900 text-sm">
                         Already have an account?
                         <a href="{{ route('login') }}" wire:navigate
-                            class="text-blue-700 hover:text-blue-800 font-semibold ml-1 transition-colors duration-200">
-                            Sign In
+                            class="p-2 rounded-lg bg-primary hover:bg-secondary font-semibold ml-1 transition-colors duration-200">
+                            Log In
                         </a>
                     </p>
                 </div>
