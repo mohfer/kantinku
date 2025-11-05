@@ -4,13 +4,13 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class Notifikasi extends Component
+class Notifications extends Component
 {
-    public $title = 'Notifikasi';
+    public $title = 'Notifications';
 
     public function render()
     {
         view()->share('title', $this->title);
-        return view('livewire.notifikasi');
+        return view('livewire.notifications');
     }
 }

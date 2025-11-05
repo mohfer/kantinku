@@ -4,13 +4,13 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class MenuMakanan extends Component
+class OrderVerification extends Component
 {
-    public $title = 'Menu Makanan';
+    public $title = 'Order Verification';
 
     public function render()
     {
         view()->share('title', $this->title);
-        return view('livewire.menu-makanan');
+        return view('livewire.order-verification');
     }
 }
