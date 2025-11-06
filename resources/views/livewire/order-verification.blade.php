@@ -1,8 +1,7 @@
 <div class="flex h-screen justify-center items-center bg-white">
-    <div
-        class="w-full flex flex-col items-center text-center">
+    <div class="w-full flex flex-col items-center text-center">
         <h2 class="text-xl md:text-2xl lg:text-3xl font-bold mb-2 text-black">Sedang diverifikasi</h2>
-        <h3 class="text-xl md:text-2xl lg:text-3xl font-bold mb-6 md:mb-8 lg:mb-10 text-black">QRIS</h3>
+        <h3 class="text-xl md:text-2xl lg:text-3xl font-bold mb-6 md:mb-8 lg:mb-10 text-black">Xendit</h3>
         <div class="relative flex justify-center items-center mb-6 md:mb-8 lg:mb-10">
             <div
                 class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center bg-gray-200 rounded-full">

@@ -60,19 +60,16 @@ class Products extends Component
             return $this->redirectRoute('login', navigate: true);
         }
 
-        // Validasi: cek apakah ada produk yang dipilih
         if ($this->totalItems == 0) {
             $this->dispatch('showEmptyCartAlert');
             return;
         }
 
-        // Cek apakah user sudah punya cart sebelumnya
         $existingCart = Cart::where('user_id', Auth::id())
             ->with(['merchant', 'cartItems'])
             ->first();
 
         if ($existingCart) {
-            // Dispatch event ke browser untuk menampilkan confirm dialog
             $merchantName = $existingCart->merchant->name;
             $itemCount = $existingCart->cartItems->sum('quantity');
 
@@ -84,29 +81,24 @@ class Products extends Component
             return;
         }
 
-        // Jika tidak ada cart sebelumnya, langsung tambah ke cart
         $this->proceedToCart(false);
     }
 
     public function useExistingCart($merchantSlug)
     {
-        // Redirect ke detail product (keranjang existing)
         return $this->redirectRoute('products', ['slug' => $merchantSlug], navigate: true);
     }
 
     public function createNewCart()
     {
-        // Hapus cart lama dan buat yang baru
         $this->proceedToCart(true);
     }
     private function proceedToCart($deleteExisting = false)
     {
         if ($deleteExisting) {
-            // Hapus cart lama beserta item-itemnya
             Cart::where('user_id', Auth::id())->delete();
         }
 
-        // Buat cart baru
         $cart = Cart::firstOrCreate([
             'user_id' => Auth::id(),
             'merchant_id' => $this->merchant->id,

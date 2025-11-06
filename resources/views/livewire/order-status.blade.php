@@ -1,4 +1,4 @@
-<div class="flex h-screen items-center justify-center bg-white">
+<div class="flex h-screen items-center justify-center bg-white my-4">
     <div class="w-full flex flex-col items-center text-center">
         @php
             $statuses = ['PENDING', 'PROCESSING', 'READY', 'COMPLETED'];
@@ -6,10 +6,13 @@
             $isCanceled = $order->order_status == 'CANCELED';
         @endphp
 
+        <img src="{{ asset('storage/images/Group 93.png') }}" alt=""
+            class="w-32 md:w-48 lg:w-56 mb-6 md:mb-8 lg:mb-10">
+
         <h2 class="text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 lg:mb-8">
             @switch($order->order_status)
                 @case('PENDING')
-                    Pesanan Anda telah diterima
+                    Pesanan Anda sedang menunggu konfirmasi
                 @break
 
                 @case('PROCESSING')
@@ -41,9 +44,8 @@
                     $isDone = $currentIndex > $index;
                 @endphp
 
-                {{-- Icon Status --}}
                 <div
-                    class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center rounded-full border-2 transition-all duration-300
+                    class="shrink-0 w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center rounded-full border-2 transition-all duration-300
             {{ $isCanceled
                 ? 'bg-red-500 border-red-600'
                 : ($isDone
@@ -52,12 +54,11 @@
                         ? 'bg-green-500 border-green-600'
                         : 'bg-gray-200 border-gray-400')) }}">
 
-                    {{-- Icon berdasarkan status --}}
                     @switch($status)
                         @case('PENDING')
                             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24"
-                                stroke="{{ $isCanceled ? '#fff' : ($isDone || $isActive ? '#fff' : '#9ca3af') }}" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
+                                stroke="{{ $isCanceled ? '#fff' : ($isDone || $isActive ? '#fff' : '#9ca3af') }}"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path
                                     d="M8.5 13L10.5 15L15.5 10M7 3V5M17 3V5M6 9H18M5 21H19C19.5304 21 20.0391 20.7893 20.4142 20.4142C20.7893 20.0391 21 19.5304 21 19V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V19C3 19.5304 3.21071 20.0391 3.58579 20.4142C3.96086 20.7893 4.46957 21 5 21Z" />
                             </svg>
@@ -100,7 +101,6 @@
                     @endswitch
                 </div>
 
-                {{-- Garis antar status (kecuali terakhir) --}}
                 @if (!$loop->last)
                     <div
                         class="w-12 md:w-16 lg:w-24 h-0.5 mx-3 md:mx-4 lg:mx-6 
@@ -132,15 +132,31 @@
                 </div>
                 <div class="flex justify-between mb-2">
                     <span>Metode Pembayaran</span>
-                    <span class="font-medium">{{ $order->payment->payment_method }}</span>
+                    <span
+                        class="font-medium">{{ $order->payment->method == 'qris' ? 'QRIS' : strtoupper($order->payment->method) }}</span>
                 </div>
-                <div class="mb-2">
-                    <span class="block font-semibold mb-1">Catatan</span>
-                    <div class="bg-gray-100 p-3 rounded-xl text-gray-800 text-sm italic border border-gray-200">
-                        “{{ $order->notes }}”
+                @if ($order->order_status == 'CANCELED')
+                    <div class="flex justify-between mb-2">
+                        <span class="text-red-600 font-semibold">Alasan Pembatalan</span>
+                        <span class="font-medium text-red-600">{{ $order->cancellation_reason }}</span>
                     </div>
-                </div>
+                @endif
+                @if ($order->notes)
+                    <div class="mb-2">
+                        <span class="block font-semibold mb-1">Catatan</span>
+                        <div class="bg-gray-100 p-3 rounded-xl text-gray-800 text-sm italic border border-gray-200">
+                            “{{ $order->notes }}”
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
+        <div class="mt-4">
+            <a href="{{ route('orders') }}" wire:navigate
+                class="inline-block bg-primary hover:bg-secondary text-black font-bold py-3 px-6 rounded-lg shadow-md transition">
+                Kembali ke Pesanan
+            </a>
+        </div>
     </div>
+</div>
 </div>

@@ -21,7 +21,7 @@ class Login extends Component
 
         if (auth()->attempt($credentials)) {
             session()->regenerate();
-            return redirect()->intended(route('home'));
+            return $this->redirectRoute('home', navigate: true);
         }
 
         $this->addError('login', __('auth.failed'));

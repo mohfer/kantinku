@@ -14,15 +14,21 @@
         </div>
     </div>
     <div class="py-4 space-y-4">
+        @if ($orders->isEmpty())
+            <div class="text-center py-8">
+                <p class="text-gray-500 text-sm">Tidak ada riwayat pesanan.</p>
+            </div>
+        @endif
         @foreach ($orders as $order)
             <a href="{{ route('order-status', ['order_number' => $order->order_number]) }}" wire:navigate>
                 <div class="bg-gray-200 rounded-lg p-4 mb-4 shadow-sm">
                     <div class="mb-3">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4">{{ $order->merchant->name }}</h3>
-                        <p class="text-sm text-gray-600">Dipesan: {{ $order->created_at->format('h:i A') }}</p>
+                        <p class="text-sm text-gray-600">Dipesan: {{ $order->created_at->format('d-m-Y H:i') }}</p>
                         <p class="text-sm text-gray-600">Metode Makan:
                             {{ $order->service_type == 'dine_in' ? 'Dine In' : 'Take Away' }}</p>
                         <p class="text-sm text-gray-600">Metode Pembayaran: {{ $order->payment->payment_method }}</p>
+                        <p class="text-sm text-gray-600">Selesai: {{ $order->completed_at->format('d-m-Y H:i') }}</p>
                         <p class="text-lg font-bold my-4">Rp {{ number_format($order->total, 0, ',', '.') }}</p>
                     </div>
                     <div class="flex items-center justify-between space-x-3">

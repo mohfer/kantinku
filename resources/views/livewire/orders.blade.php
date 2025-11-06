@@ -14,21 +14,38 @@
         </div>
     </div>
     <div class="py-4 space-y-4">
+        @if ($orders->isEmpty())
+            <div class="text-center py-8">
+                <p class="text-gray-500 text-sm">Tidak ada pesanan berlangsung saat ini.</p>
+            </div>
+        @endif
         @foreach ($orders as $order)
-            <a href="{{ route('order-status', ['order_number' => $order->order_number]) }}" wire:navigate>
+            @php
+                $payment = $order->payment;
+                $isXenditPending = $payment && $payment->method === 'qris' && $payment->status === 'PENDING';
+            @endphp
+            <a href="{{ $isXenditPending ? $payment->external_url : route('order-status', ['order_number' => $order->order_number]) }}"
+                {{ $isXenditPending ? '' : 'wire:navigate' }}>
                 <div class="bg-gray-200 rounded-lg p-4 mb-4 shadow-sm">
                     <div class="mb-3">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4">{{ $order->merchant->name }}</h3>
-                        <p class="text-sm text-gray-600">Dipesan: {{ $order->created_at->format('h:i A') }}</p>
-                        <p class="text-sm text-gray-600">Metode Makan:
-                            {{ $order->service_type == 'dine_in' ? 'Dine In' : 'Take Away' }}</p>
-                        <p class="text-sm text-gray-600">Metode Pembayaran: {{ $order->payment->payment_method }}</p>
-                        <p class="text-lg font-bold my-4">Rp {{ number_format($order->total, 0, ',', '.') }}</p>
+                        <p class="text-sm text-gray-600">
+                            Dipesan: {{ $order->created_at->format('d-m-Y H:i') }}
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            Metode Makan: {{ $order->service_type === 'dine_in' ? 'Dine In' : 'Take Away' }}
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            Metode Pembayaran: {{ strtoupper($payment->method ?? '-') }}
+                        </p>
+                        <p class="text-lg font-bold my-4">
+                            Rp {{ number_format($order->total, 0, ',', '.') }}
+                        </p>
                     </div>
                     <div class="flex items-center justify-between space-x-3">
                         <span
-                            class="px-3 py-1 text-sm font-medium rounded-lg bg-yellow-100 text-yellow-700 border border-yellow-300">
-                            {{ $order->order_status }}
+                            class="px-3 py-1 text-sm font-medium rounded-lg border {{ $isXenditPending ? 'bg-yellow-100 text-yellow-700 border-yellow-300' : 'bg-green-100 text-green-700 border-green-300' }}">
+                            {{ $isXenditPending ? 'Menunggu Pembayaran' : $order->order_status }}
                         </span>
                         <a href="https://wa.me/62{{ ltrim($order->merchant->user->phone, '0') }}?text=Halo%20{{ urlencode($order->merchant->name) }},%20saya%20ingin%20menanyakan%20pesanan%20saya%20({{ $order->order_number }})"
                             target="_blank"

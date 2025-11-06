@@ -16,7 +16,7 @@ class PaymentSeeder extends Seeder
         $payments = [
             [
                 'order_id' => 1,
-                'method' => 'xendit',
+                'method' => 'qris',
                 'xendit_invoice_id' => Str::uuid(),
                 'external_id' => 'INV-2025-0001',
                 'external_url' => 'https://checkout.xendit.co/v2/' . Str::random(20),
@@ -24,7 +24,7 @@ class PaymentSeeder extends Seeder
                 'amount_received' => null,
                 'change' => null,
                 'status' => 'PAID',
-                'payment_method' => 'QRIS',
+                'payment_method' => 'CASHLESS',
                 'paid_at' => now()->subHours(2),
             ],
             [
@@ -42,7 +42,7 @@ class PaymentSeeder extends Seeder
             ],
             [
                 'order_id' => 3,
-                'method' => 'xendit',
+                'method' => 'qris',
                 'xendit_invoice_id' => Str::uuid(),
                 'external_id' => 'INV-2025-0003',
                 'external_url' => 'https://checkout.xendit.co/v2/' . Str::random(20),
@@ -55,7 +55,7 @@ class PaymentSeeder extends Seeder
             ],
             [
                 'order_id' => 4,
-                'method' => 'xendit',
+                'method' => 'qris',
                 'xendit_invoice_id' => Str::uuid(),
                 'external_id' => 'INV-2025-0004',
                 'external_url' => 'https://checkout.xendit.co/v2/' . Str::random(20),

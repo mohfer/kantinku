@@ -14,6 +14,11 @@ class Merchant extends Model
 
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'open_time' => 'datetime:H:i',
+        'close_time' => 'datetime:H:i',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

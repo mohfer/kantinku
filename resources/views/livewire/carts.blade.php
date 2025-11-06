@@ -1,12 +1,18 @@
 <div class="mx-auto">
+    @if (session()->has('error'))
+        <div x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 3000)"
+            class="mb-4 px-4 py-3 rounded-lg bg-green-100 text-green-800 border border-green-200 shadow-sm">
+            {{ session('error') }}
+        </div>
+    @endif
     <header class="pb-6 flex items-center justify-center relative">
-        <button onclick="history.back()" class="absolute left-0 ml-4 p-2 rounded-full hover:bg-gray-100 transition"
-            aria-label="Kembali">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                class="w-6 h-6 text-gray-800">
+        <a href="{{ route('products', ['slug' => $slug]) }}" wire:navigate
+            class="absolute left-0 ml-4 p-2 rounded-full hover:bg-gray-100 transition" aria-label="Kembali">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-6 h-6 text-gray-800">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
-        </button>
+        </a>
         <h1 class="text-3xl font-bold text-center text-gray-800">
             Keranjang
         </h1>
@@ -23,11 +29,11 @@
                 </div>
                 <div class="flex items-center rounded-lg overflow-hidden shadow-sm">
                     <button wire:click="decrementQuantity({{ $item->id }})"
-                        class="bg-primary text-black p-2 flex items-center justify-center h-8 w-8 font-bold hover:bg-secondary transition">-</button>
+                        class="cursor-pointer bg-primary text-black p-2 flex items-center justify-center h-8 w-8 font-bold hover:bg-secondary transition">-</button>
                     <span
                         class="bg-primary text-black px-4 py-1 font-bold text-lg h-8 flex items-center">{{ $item->quantity }}</span>
                     <button wire:click="incrementQuantity({{ $item->id }})"
-                        class="bg-primary text-black p-2 flex items-center justify-center h-8 w-8 font-bold hover:bg-secondary transition">+</button>
+                        class="cursor-pointer bg-primary text-black p-2 flex items-center justify-center h-8 w-8 font-bold hover:bg-secondary transition">+</button>
                 </div>
             </section>
         @endforeach
@@ -39,13 +45,13 @@
             <h3 class="text-lg font-semibold text-gray-800">Pilih Metode Makan</h3>
             <div class="flex space-x-3">
                 <button wire:click="setServiceType('dine_in')"
-                    class="flex-1 font-semibold py-3 rounded-lg shadow-sm transition
-                    {{ $serviceType === 'dine_in' ? 'bg-primary text-black' : 'bg-gray-200 text-gray-700' }}">
+                    class="cursor-pointer flex-1 font-semibold py-3 rounded-lg shadow-sm transition
+                    {{ $serviceType === 'dine_in' ? 'bg-primary hover:bg-secondary text-black' : 'bg-gray-200 text-gray-700 hover:bg-gray-300' }}">
                     Dine In
                 </button>
                 <button wire:click="setServiceType('takeaway')"
-                    class="flex-1 font-semibold py-3 rounded-lg shadow-sm transition
-                    {{ $serviceType === 'takeaway' ? 'bg-primary text-black' : 'bg-gray-200 text-gray-700' }}">
+                    class="cursor-pointer flex-1 font-semibold py-3 rounded-lg shadow-sm transition
+                    {{ $serviceType === 'takeaway' ? 'bg-primary hover:bg-secondary text-black' : 'bg-gray-200 text-gray-700 hover:bg-gray-300' }}">
                     Take Away
                 </button>
             </div>
@@ -54,13 +60,13 @@
             <h3 class="text-lg font-semibold text-gray-800">Pilih Metode Pembayaran</h3>
             <div class="flex space-x-3">
                 <button wire:click="setPaymentMethod('cash')"
-                    class="flex-1 font-semibold py-3 rounded-lg shadow-sm transition
-                    {{ $paymentMethod === 'cash' ? 'bg-primary text-black' : 'bg-gray-200 text-gray-700' }}">
+                    class="cursor-pointer flex-1 font-semibold py-3 rounded-lg shadow-sm transition
+                    {{ $paymentMethod === 'cash' ? 'bg-primary hover:bg-secondary text-black' : 'bg-gray-200 text-gray-700 hover:bg-gray-300' }}">
                     Cash
                 </button>
                 <button wire:click="setPaymentMethod('qris')"
-                    class="flex-1 font-semibold py-3 rounded-lg shadow-sm transition
-                    {{ $paymentMethod === 'qris' ? 'bg-primary text-black' : 'bg-gray-200 text-gray-700' }}">
+                    class="cursor-pointer flex-1 font-semibold py-3 rounded-lg shadow-sm transition
+                    {{ $paymentMethod === 'qris' ? 'bg-primary hover:bg-secondary text-black' : 'bg-gray-200 text-gray-700 hover:bg-gray-300' }}">
                     QRIS
                 </button>
             </div>
@@ -76,14 +82,15 @@
             </div>
         </div>
     </main>
-    <div class="fixed bottom-0 left-0 right-0 max-w-sm mx-auto mb-16">
+    <div class="fixed bottom-0 left-0 right-0 mb-16">
         <div class="bg-white p-4 border-gray-200 flex justify-between items-center rounded-lg">
             <div>
                 <span class="text-sm text-gray-600">Total</span>
                 <p class="font-bold text-xl text-gray-900">Rp
                     {{ number_format($cartItems->sum('subtotal'), 0, ',', '.') }}</p>
             </div>
-            <button wire:click="orderNow" class="bg-primary text-black font-bold py-3 px-6 rounded-lg shadow-md">
+            <button wire:click="orderNow"
+                class="cursor-pointer bg-primary hover:bg-secondary transition text-black font-bold py-3 px-6 rounded-lg shadow-md">
                 Pesan Sekarang
             </button>
         </div>

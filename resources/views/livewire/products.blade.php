@@ -16,7 +16,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round"
                     d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <span>Buka : {{ $merchant->open_time }} - {{ $merchant->close_time }}</span>
+            <span>Buka : {{ $merchant->open_time->format('H:i') }} - {{ $merchant->close_time->format('H:i') }}</span>
         </div>
     </header>
     <main class="py-4 pb-32 ">
@@ -25,32 +25,47 @@
                 class="flex items-center bg-gray-200 p-2 space-x-4 border-b border-white
             @if ($loop->first) rounded-t-lg @elseif($loop->last) rounded-b-lg @endif">
                 <img src="{{ asset('storage/images/' . $product->image) }}" alt="{{ $product->name }}"
-                    class="w-20 h-20 rounded-lg object-cover">
+                    class="w-20 h-20 rounded-full object-cover border-2 border-white shadow-sm">
                 <div class="flex-1">
                     <h2 class="font-bold text-lg text-gray-900">{{ $product->name }}</h2>
                     <p class="text-gray-700 font-medium">
                         Rp {{ number_format($product->price, 0, ',', '.') }}
                     </p>
-                </div>
-                <div class="flex items-center rounded-lg overflow-hidden shadow-sm">
-                    <button wire:click="decrement({{ $product->id }})"
-                        class="bg-primary p-2 flex items-center justify-center h-8 w-8 font-bol">-</button>
-                    <span class="bg-primary px-4 py-1 font-bold text-lg h-8 flex items-center">
-                        {{ $quantities[$product->id] ?? 0 }}
+                    <span
+                        class="inline-block mt-2 px-3 py-1 bg-{{ $product->is_available == 0 ? 'red-500' : 'green-500' }} text-white text-sm rounded-lg">
+                        {{ $product->is_available == 1 ? 'Tersedia' : 'Tidak Tersedia' }}
                     </span>
-                    <button wire:click="increment({{ $product->id }})"
-                        class="bg-primary p-2 flex items-center justify-center h-8 w-8 font-bol">+</button>
                 </div>
+                @if ($product->is_available == 0)
+                    <div class="flex items-center rounded-lg overflow-hidden shadow-sm opacity-50">
+                        <button disabled
+                            class="bg-gray-400 p-2 flex items-center justify-center h-8 w-8 font-bold cursor-not-allowed">-</button>
+                        <span class="bg-gray-400 px-4 py-1 font-bold text-lg h-8 flex items-center">
+                            0
+                        </span>
+                        <button disabled
+                            class="bg-gray-400 p-2 flex items-center justify-center h-8 w-8 font-bold cursor-not-allowed">+</button>
+                    </div>
+                @else
+                    <div class="flex items-center rounded-lg overflow-hidden shadow-sm">
+                        <button wire:click="decrement({{ $product->id }})"
+                            class="cursor-pointer bg-primary p-2 flex items-center justify-center h-8 w-8 font-bold hover:bg-secondary">-</button>
+                        <span class="bg-primary px-4 py-1 font-bold text-lg h-8 flex items-center">
+                            {{ $quantities[$product->id] ?? 0 }}
+                        </span>
+                        <button wire:click="increment({{ $product->id }})"
+                            class="cursor-pointer bg-primary p-2 flex items-center justify-center h-8 w-8 font-bold hover:bg-secondary">+</button>
+                    </div>
+                @endif
             </section>
         @endforeach
     </main>
     <div class="fixed bottom-0 left-0 right-0 max-w-sm mx-auto mb-20 px-4">
         <button wire:click="addToCart"
-            class="w-full bg-primary hover:bg-primary/90 transition-colors rounded-xl py-4 flex items-center justify-center space-x-3 shadow-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c.51 0 .962-.343 1.087-.835l.383-1.437M8.25 12h7.5M3.75 6h16.5m-16.5 0l.383 1.437M19.5 6l-.383 1.437M3.75 6l-.383-1.437A1.125 1.125 0 013.386 3H2.25z" />
+            class="cursor-pointer w-full bg-primary hover:bg-secondary transition-colors rounded-xl py-4 flex items-center justify-center space-x-3 shadow-lg">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
             <span class="font-semibold">
                 Keranjang : {{ $totalItems }} Hidangan
@@ -70,7 +85,7 @@
                     `Anda sudah memiliki keranjang di ${data.merchantName} (${data.itemCount} item).\n\nPilih:\n- OK: Gunakan keranjang lama\n- Cancel: Buat keranjang baru (keranjang lama akan dihapus)`;
 
                 if (confirm(message)) {
-                    window.location.href = `/merchants/${data.merchantSlug}/cart`;
+                    window.location.href = `/merchants/${data.merchantSlug}/carts`;
                 } else {
                     $wire.call('createNewCart');
                 }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('order_number')->unique();
+            $table->string('order_number')->unique()->nullable();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('merchant_id')->constrained();
             $table->enum('service_type', ['dine_in', 'takeaway']);

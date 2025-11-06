@@ -1,11 +1,11 @@
 <div class="min-h-screen flex flex-col bg-white">
-    <button onclick="history.back()" class="absolute left-0 ml-4 p-2 rounded-full hover:bg-gray-100 transition"
+    <a href="{{ route('login') }}" wire:navigate class="absolute left-0 ml-4 p-2 rounded-full hover:bg-gray-100 transition"
         aria-label="Kembali">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
             class="w-6 h-6 text-gray-800">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
-    </button>
+    </a>
     <div class="flex-1 flex items-center justify-center">
         <div class="w-full max-w-md">
             <div class="text-center mb-4">
@@ -16,7 +16,7 @@
                 <p class="text-gray-600 text-sm">Eat smart, order Fast</p>
             </div>
             <h1 class="text-xl font-bold text-center my-4">Forget Password</h1>
-            <form wire:submit.prevent="login" class="space-y-4">
+            <form wire:submit.prevent="forgetPassword" class="space-y-4">
                 <div>
                     <label class="block text-sm font-medium text-black mb-1 ml-2">Email</label>
                     <input type="email" wire:model="email"
@@ -26,12 +26,9 @@
                         <span class="text-sm text-red-500 mt-1 block">{{ $message }}</span>
                     @enderror
                 </div>
-                @error('login')
-                    <p class="text-sm text-red-500 text-center">{{ $message }}</p>
-                @enderror
                 <div>
-                    <button
-                        class="w-full py-2 bg-primary hover:bg-secondary font-semibold rounded-md transition-all duration-200 shadow-sm hover:shadow-md">
+                    <button type="submit"
+                        class="cursor-pointer w-full py-2 bg-primary hover:bg-secondary font-semibold rounded-md transition-all duration-200 shadow-sm hover:shadow-md">
                         Send Password Reset Link
                     </button>
                 </div>

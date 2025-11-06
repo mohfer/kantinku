@@ -56,7 +56,7 @@
                 </div>
                 <div class="pt-2">
                     <button
-                        class="w-full py-2 bg-primary hover:bg-secondary font-semibold rounded-md transition-all duration-200 shadow-sm hover:shadow-md">
+                        class="cursor-pointer w-full py-2 bg-primary hover:bg-secondary font-semibold rounded-md transition-all duration-200 shadow-sm hover:shadow-md">
                         Register
                     </button>
                 </div>
