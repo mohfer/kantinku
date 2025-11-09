@@ -14,12 +14,13 @@ class OrderLists extends Component
 
         return Order::with(['merchant', 'user', 'orderItems.product', 'payment'])
             ->whereIn('order_status', ['PENDING', 'PROCESSING', 'READY'])
-            ->where(function ($query) {
-                $query->whereHas('payment', function ($q) {
-                    $q->where('method', 'cash');
-                })->orWhereHas('payment', function ($q) {
-                    $q->where('method', 'qris')
-                        ->where('status', 'PAID');
+            ->whereHas('payment', function ($query) {
+                $query->where(function ($q) {
+                    $q->where('method', 'cash')
+                        ->orWhere(function ($q2) {
+                            $q2->where('method', 'qris')
+                                ->where('status', 'PAID');
+                        });
                 });
             })
             ->when($user->role === 'merchant', function ($query) use ($user) {
