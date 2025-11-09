@@ -24,11 +24,11 @@
                 <div class="bg-gray-200 rounded-lg p-4 mb-4 shadow-sm">
                     <div class="mb-3">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4">{{ $order->merchant->name }}</h3>
-                        <p class="text-sm text-gray-600">Dipesan: {{ $order->created_at->format('d-m-Y H:i') }}</p>
+                        <p class="text-sm text-gray-600">Dipesan: {{ $order->created_at }}</p>
                         <p class="text-sm text-gray-600">Metode Makan:
                             {{ $order->service_type == 'dine_in' ? 'Dine In' : 'Take Away' }}</p>
                         <p class="text-sm text-gray-600">Metode Pembayaran: {{ $order->payment->payment_method }}</p>
-                        <p class="text-sm text-gray-600">Selesai: {{ $order->completed_at->format('d-m-Y H:i') }}</p>
+                        <p class="text-sm text-gray-600">Selesai: {{ $order->completed_at }}</p>
                         <p class="text-lg font-bold my-4">Rp {{ number_format($order->total, 0, ',', '.') }}</p>
                     </div>
                     <div class="flex items-center justify-between space-x-3">
@@ -37,7 +37,7 @@
                                 class="px-3 py-1 text-sm font-medium rounded-lg bg-green-100 text-green-700 border border-green-300">
                                 Selesai
                             </span>
-                        @elseif($order->order_status == 'CANCELLED')
+                        @elseif($order->order_status == 'CANCELED')
                             <span
                                 class="px-3 py-1 text-sm font-medium rounded-lg bg-red-100 text-red-700 border border-red-300">
                                 Dibatalkan

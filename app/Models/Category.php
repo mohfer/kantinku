@@ -5,10 +5,11 @@ namespace App\Models;
 use App\Models\Product;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model
 {
-    use Sluggable;
+    use Sluggable, SoftDeletes;
 
     protected $guarded = ['id'];
 

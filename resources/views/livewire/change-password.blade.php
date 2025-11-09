@@ -25,7 +25,7 @@
                         Password</label>
                     <div class="relative" x-data="{ showPassword: false }">
                         <input :type="showPassword ? 'text' : 'password'" id="old_password"
-                            placeholder="Enter old password" wire:model="old_password"
+                            placeholder="Enter old password" wire:model="old_password" required
                             class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 pr-12 text-sm text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200">
                         <button type="button" @click="showPassword = !showPassword"
                             class="cursor-pointer absolute inset-y-0 right-0 flex items-center pr-4 text-gray-400 hover:text-gray-600 transition-colors duration-200">
@@ -53,7 +53,7 @@
                         Password</label>
                     <div class="relative" x-data="{ showPassword: false }">
                         <input :type="showPassword ? 'text' : 'password'" id="new_password"
-                            placeholder="Enter new password" wire:model="new_password"
+                            placeholder="Enter new password" wire:model="new_password" required
                             class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 pr-12 text-sm text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200">
                         <button type="button" @click="showPassword = !showPassword"
                             class="cursor-pointer absolute inset-y-0 right-0 flex items-center pr-4 text-gray-400 hover:text-gray-600 transition-colors duration-200">
@@ -82,7 +82,7 @@
                         Password</label>
                     <div class="relative" x-data="{ showPassword: false }">
                         <input :type="showPassword ? 'text' : 'password'" id="new_password_confirmation"
-                            placeholder="Confirm new password" wire:model="new_password_confirmation"
+                            placeholder="Confirm new password" wire:model="new_password_confirmation" required
                             class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 pr-12 text-sm text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200">
                         <button type="button" @click="showPassword = !showPassword"
                             class="cursor-pointer absolute inset-y-0 right-0 flex items-center pr-4 text-gray-400 hover:text-gray-600 transition-colors duration-200">

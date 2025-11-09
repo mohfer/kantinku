@@ -19,6 +19,7 @@ class Merchants extends Component
     public function mount()
     {
         $this->merchants = Merchant::where('is_active', true)->get();
+        
     }
 
     public function updatedSearch()

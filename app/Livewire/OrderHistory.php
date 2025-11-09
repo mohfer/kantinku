@@ -16,7 +16,7 @@ class OrderHistory extends Component
     {
         $this->orders = Order::with(['payment', 'merchant.user'])
             ->where('user_id', Auth::id())
-            ->whereIn('order_status', ['COMPLETED', 'CANCELLED'])
+            ->whereIn('order_status', ['COMPLETED', 'CANCELED'])
             ->get();
     }
 

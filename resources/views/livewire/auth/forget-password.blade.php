@@ -19,7 +19,7 @@
             <form wire:submit.prevent="forgetPassword" class="space-y-4">
                 <div>
                     <label class="block text-sm font-medium text-black mb-1 ml-2">Email</label>
-                    <input type="email" wire:model="email"
+                    <input type="email" wire:model="email" required
                         class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 text-sm text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                         placeholder="123tes@gmail.com">
                     @error('email')

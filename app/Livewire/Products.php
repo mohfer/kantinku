@@ -22,6 +22,11 @@ class Products extends Component
     public function mount($slug)
     {
         $this->merchant = Merchant::where('slug', $slug)->firstOrFail();
+
+        if (! $this->merchant || ! $this->merchant->is_active) {
+            return $this->redirectRoute('merchants', navigate: true);
+        }
+
         $this->products = $this->merchant->products;
 
         foreach ($this->products as $product) {

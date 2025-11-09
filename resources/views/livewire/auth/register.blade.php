@@ -11,7 +11,7 @@
             <form wire:submit.prevent="register" class="space-y-4">
                 <div>
                     <label class="block text-sm font-medium text-black mb-1 ml-2">Full Name</label>
-                    <input type="text" wire:model="name"
+                    <input type="text" wire:model="name" required
                         class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 text-sm text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                         placeholder="Kantinkinku Sign/Id">
                     @error('name')
@@ -20,7 +20,7 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-black mb-1 ml-2">Email Address</label>
-                    <input type="email" wire:model="email"
+                    <input type="email" wire:model="email" required
                         class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 text-sm text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                         placeholder="kati.123@gmail.com">
                     @error('email')
@@ -29,7 +29,7 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-black mb-1 ml-2">Password</label>
-                    <input type="password" wire:model="password"
+                    <input type="password" wire:model="password" required
                         class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 text-sm text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                         placeholder="Enter your password">
                     @error('password')
@@ -38,7 +38,7 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-black mb-1 ml-2">Confirm Password</label>
-                    <input type="password" wire:model="password_confirmation"
+                    <input type="password" wire:model="password_confirmation" required
                         class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 text-sm text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                         placeholder="Confirm your password">
                     @error('password_confirmation')
@@ -47,7 +47,7 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-black mb-1 ml-2">Phone</label>
-                    <input type="tel" wire:model="phone"
+                    <input type="tel" wire:model="phone" required
                         class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 text-sm text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                         placeholder="0852*****">
                     @error('phone')

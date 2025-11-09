@@ -21,7 +21,7 @@ return new class extends Migration
             $table->decimal('tax', 10, 2);
             $table->decimal('total', 10, 2);
             $table->enum('payment_status', ['PENDING', 'PAID', 'FAILED'])->default('PENDING');
-            $table->enum('order_status', ['PENDING', 'PROCESSING', 'READY', 'COMPLETED', 'CANCELLED'])->default('PENDING');
+            $table->enum('order_status', ['PENDING', 'PROCESSING', 'READY', 'COMPLETED', 'CANCELED'])->default('PENDING');
             $table->text('notes')->nullable();
             $table->datetime('completed_at')->nullable();
             $table->timestamps();

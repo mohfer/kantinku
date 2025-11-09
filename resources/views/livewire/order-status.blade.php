@@ -1,4 +1,4 @@
-<div class="flex h-screen items-center justify-center bg-white my-4">
+<div class="flex h-screen items-center justify-center bg-white my-4" wire:poll.3s>
     <div class="w-full flex flex-col items-center text-center">
         @php
             $statuses = ['PENDING', 'PROCESSING', 'READY', 'COMPLETED'];
@@ -109,6 +109,7 @@
                 @endif
             @endforeach
         </div>
+        <p class="font-bold mb-4">Order Number: {{ $order->order_number }}</p>
         <div
             class="bg-gray-200 text-left p-5 md:p-6 lg:p-8 rounded-lg leading-relaxed w-full max-w-xs md:max-w-sm lg:max-w-md mx-auto text-sm md:text-base">
             @foreach ($order->orderItems as $item)

@@ -46,7 +46,7 @@
                 </div>
                 <div>
                     <label for="name" class="block text-sm font-medium text-black mb-2 ml-2">Name</label>
-                    <input type="text" id="name" placeholder="Kurniawan Saputra" wire:model="name"
+                    <input type="text" id="name" placeholder="Kurniawan Saputra" wire:model="name" required
                         class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 text-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200">
                     @error('name')
                         <span class="text-sm text-red-500 mt-1 block">{{ $message }}</span>
@@ -54,7 +54,7 @@
                 </div>
                 <div>
                     <label for="email" class="block text-sm font-medium text-black mb-2 ml-2">Email</label>
-                    <input type="email" id="email" placeholder="Kurniawan@gmail.com" wire:model="email"
+                    <input type="email" id="email" placeholder="Kurniawan@gmail.com" wire:model="email" required
                         class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 text-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200">
                     @error('email')
                         <span class="text-sm text-red-500 mt-1 block">{{ $message }}</span>
@@ -62,7 +62,7 @@
                 </div>
                 <div>
                     <label for="phone" class="block text-sm font-medium text-black mb-2 ml-2">Phone Number</label>
-                    <input type="tel" id="phone" placeholder="+62-857-3356-4180" wire:model="phone"
+                    <input type="tel" id="phone" placeholder="+62-857-3356-4180" wire:model="phone" required
                         class="w-full h-12 border-2 border-gray-300 rounded-[15px] px-4 text-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200">
                     @error('phone')
                         <span class="text-sm text-red-500 mt-1 block">{{ $message }}</span>
