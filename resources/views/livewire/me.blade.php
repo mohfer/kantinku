@@ -75,9 +75,14 @@
                     </a>
                 </div>
                 <div class="pt-2">
-                    <button type="submit"
+                    <button type="submit" wire:loading.attr="disabled"
                         class="cursor-pointer w-full h-[47px] bg-primary hover:bg-secondary rounded-lg text-base font-semibold transition-all duration-200 shadow-sm hover:shadow-md">
-                        Save
+                        <span wire:loading.remove>
+                            Save
+                        </span>
+                        <span wire:loading>
+                            Processing…
+                        </span>
                     </button>
                 </div>
             </form>

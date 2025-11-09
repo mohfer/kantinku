@@ -27,9 +27,10 @@
                     @enderror
                 </div>
                 <div>
-                    <button type="submit"
+                    <button wire:loading.attr="disabled"
                         class="cursor-pointer w-full py-2 bg-primary hover:bg-secondary font-semibold rounded-md transition-all duration-200 shadow-sm hover:shadow-md">
-                        Send Password Reset Link
+                        <span wire:loading.remove>Send Password Reset Link</span>
+                        <span wire:loading>Processing…</span>
                     </button>
                 </div>
             </form>

@@ -89,10 +89,16 @@
                 <p class="font-bold text-xl text-gray-900">Rp
                     {{ number_format($cartItems->sum('subtotal'), 0, ',', '.') }}</p>
             </div>
-            <button wire:click="orderNow"
+            <button wire:click="orderNow" wire:loading.attr="disabled"
                 class="cursor-pointer bg-primary hover:bg-secondary transition text-black font-bold py-3 px-6 rounded-lg shadow-md">
-                Pesan Sekarang
+                <span wire:loading.remove>
+                    Pesan Sekarang
+                </span>
+                <span wire:loading>
+                    Processing…
+                </span>
             </button>
+
         </div>
     </div>
 </div>
