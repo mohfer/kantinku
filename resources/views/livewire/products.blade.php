@@ -24,7 +24,7 @@
             <section
                 class="flex items-center bg-gray-200 p-2 space-x-4 border-b border-white
             @if ($loop->first) rounded-t-lg @elseif($loop->last) rounded-b-lg @endif">
-                <img src="{{ asset('storage/images/' . $product->image) }}" alt="{{ $product->name }}"
+                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
                     class="w-20 h-20 rounded-full object-cover border-2 border-white shadow-sm">
                 <div class="flex-1">
                     <h2 class="font-bold text-lg text-gray-900">{{ $product->name }}</h2>

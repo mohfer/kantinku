@@ -31,7 +31,7 @@
         </div>
 
         <div class="flex justify-center mt-4 mb-2">
-            <img src="{{ asset('storage/images/Group 93.png') }}" alt="Logo Kantinku"
+            <img src="{{ asset('storage/images/Logo.webp') }}" alt="Logo Kantinku"
                 class="w-40 md:w-60 lg:w-72 object-contain opacity-95">
         </div>
         <h3 class="text-lg font-semibold text-start mt-2 mb-4">
@@ -43,8 +43,7 @@
                 <a href="{{ route('products', ['slug' => $item['product']->merchant->slug]) }}" wire:navigate>
                     <div
                         class="flex items-center gap-4 p-4 border border-gray-300 rounded-xl shadow-sm hover:bg-gray-100 transition-all bg-white my-3">
-                        <img src="{{ asset('storage/images/' . $item['product']->image) }}"
-                            alt="{{ $item['product']->name }}"
+                        <img src="{{ asset('storage/' . $item['product']->image) }}" alt="{{ $item['product']->name }}"
                             class="w-20 h-20 rounded-full object-cover border-2 border-white shadow-sm">
                         <div class="flex-1">
                             <p class="text-lg font-semibold">{{ $item['product']->name }}</p>

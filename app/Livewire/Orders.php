@@ -20,6 +20,7 @@ class Orders extends Component
         $this->orders = Order::with(['payment', 'merchant.user'])
             ->where('user_id', Auth::id())
             ->whereIn('order_status', ['PENDING', 'PROCESSING', 'READY'])
+            ->orderBy('created_at', 'desc')
             ->get();
 
         $this->paymentStatus = Payment::whereHas('order', function ($query) {

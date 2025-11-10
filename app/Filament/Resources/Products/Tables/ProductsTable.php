@@ -30,7 +30,8 @@ class ProductsTable
                 TextColumn::make('price')
                     ->money('idr')
                     ->sortable(),
-                ImageColumn::make('image'),
+                ImageColumn::make('image')
+                    ->disk('public'),
                 IconColumn::make('is_available')
                     ->boolean(),
                 TextColumn::make('created_at')

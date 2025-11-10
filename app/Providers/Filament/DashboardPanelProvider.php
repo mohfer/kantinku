@@ -2,13 +2,13 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Widgets\RevenueChart;
+use App\Filament\Widgets\SistemStats;
+use App\Filament\Widgets\StatsOverview;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Pages\Dashboard;
 use Filament\Support\Colors\Color;
-use Filament\Widgets\AccountWidget;
-use Filament\Widgets\FilamentInfoWidget;
-use Filament\Http\Middleware\Authenticate;
 use App\Http\Middleware\FilamentAuthenticate;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -18,6 +18,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Widgets\AccountWidget;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 
@@ -39,8 +40,12 @@ class DashboardPanelProvider extends PanelProvider
             ->pages([
                 Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
-            ->widgets([])
+            // ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
+            ->widgets([
+                StatsOverview::class,
+                RevenueChart::class,
+                SistemStats::class,
+            ])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

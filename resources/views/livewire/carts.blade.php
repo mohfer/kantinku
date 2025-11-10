@@ -20,7 +20,7 @@
     <main class="space-y-5 pb-48">
         @foreach ($cartItems as $item)
             <section class="flex bg-gray-200 items-center rounded-xl shadow-md p-2 space-x-4">
-                <img src="{{ asset($item->product->image) }}" alt="{{ $item->product->name }}"
+                <img src="{{ asset('storage/' . $item->product->image) }}" alt="{{ $item->product->name }}"
                     class="w-20 h-20 rounded-full object-cover border-2 border-white shadow-sm">
                 <div class="flex-1">
                     <h2 class="font-bold text-lg text-gray-900">{{ $item->product->name }}</h2>

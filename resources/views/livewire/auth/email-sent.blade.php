@@ -10,7 +10,7 @@
         <div class="w-full max-w-md">
             <div class="text-center mb-4">
                 <div class="flex justify-center">
-                    <img src="{{ asset('storage/images/Group 93.png') }}" alt="Logo Kantinku"
+                    <img src="{{ asset('storage/images/Logo.webp') }}" alt="Logo Kantinku"
                         class="w-60 object-contain opacity-95">
                 </div>
                 <p class="text-gray-600 text-sm">Eat smart, order Fast</p>

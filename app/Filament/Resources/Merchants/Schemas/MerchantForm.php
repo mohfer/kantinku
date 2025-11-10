@@ -9,6 +9,7 @@ use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Textarea;
+use Illuminate\Support\Facades\Storage;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TimePicker;
@@ -47,8 +48,17 @@ class MerchantForm
                 TextInput::make('location')
                     ->required(),
                 FileUpload::make('image')
+                    ->disk('public')
+                    ->directory('images/merchants')
                     ->image()
-                    ->required(),
+                    ->maxSize(2048)
+                    ->required()
+                    ->dehydrateStateUsing(function ($state, $record) {
+                        if ($record && $record->image && $record->image !== $state) {
+                            Storage::disk('public')->delete($record->image);
+                        }
+                        return $state;
+                    }),
                 TimePicker::make('open_time')
                     ->seconds(false)
                     ->required(),

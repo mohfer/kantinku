@@ -31,7 +31,8 @@ class MerchantsTable
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('location')
                     ->searchable(),
-                ImageColumn::make('image'),
+                ImageColumn::make('image')
+                    ->disk('public'),
                 TextColumn::make('open_time')
                     ->time('H:i')
                     ->sortable(),

@@ -4,10 +4,18 @@ namespace App\Livewire;
 
 use App\Models\Order;
 use Livewire\Component;
+use App\Services\WhatsAppService;
 use Illuminate\Support\Facades\Auth;
 
 class OrderLists extends Component
 {
+    protected $whatsappService;
+
+    public function boot(WhatsAppService $whatsappService)
+    {
+        $this->whatsappService = $whatsappService;
+    }
+
     public function getOrdersProperty()
     {
         $user = Auth::user();
@@ -34,7 +42,13 @@ class OrderLists extends Component
 
     public function acceptOrder($id)
     {
-        Order::where('id', $id)->update(['order_status' => 'PROCESSING']);
+        $order = Order::with(['user', 'merchant', 'orderItems.product'])->find($id);
+
+        if ($order) {
+            $order->update(['order_status' => 'PROCESSING']);
+
+            $this->whatsappService->sendOrderProcessingMessage($order);
+        }
     }
 
     public function rejectOrder($id)
@@ -59,12 +73,18 @@ class OrderLists extends Component
 
     public function markAsReady($id)
     {
-        Order::where('id', $id)->update(['order_status' => 'READY']);
+        $order = Order::with(['user', 'merchant', 'orderItems.product'])->find($id);
+
+        if ($order) {
+            $order->update(['order_status' => 'READY']);
+
+            $this->whatsappService->sendOrderReadyMessage($order);
+        }
     }
 
     public function markAsCompleted($id)
     {
-        $order = Order::with('payment')->find($id);
+        $order = Order::with(['payment', 'user', 'merchant', 'orderItems.product'])->find($id);
 
         if ($order) {
             $order->update([
@@ -79,6 +99,8 @@ class OrderLists extends Component
                     'paid_at' => now(),
                 ]);
             }
+
+            $this->whatsappService->sendOrderCompletedMessage($order);
         }
     }
 

@@ -6,7 +6,7 @@
             $isCanceled = $order->order_status == 'CANCELED';
         @endphp
 
-        <img src="{{ asset('storage/images/Group 93.png') }}" alt=""
+        <img src="{{ asset('storage/images/Logo.webp') }}" alt=""
             class="w-32 md:w-48 lg:w-56 mb-6 md:mb-8 lg:mb-10">
 
         <h2 class="text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 lg:mb-8">
