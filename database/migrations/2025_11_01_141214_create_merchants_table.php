@@ -23,6 +23,7 @@ return new class extends Migration
             $table->time('close_time');
             $table->boolean('is_active')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
