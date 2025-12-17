@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->constrained()->unique();
-            $table->enum('method', ['xendit', 'cash']);
+            $table->enum('method', ['qris', 'cash']);
             $table->string('xendit_invoice_id')->nullable()->unique();
             $table->string('external_id')->nullable()->unique();
             $table->string('external_url')->nullable();

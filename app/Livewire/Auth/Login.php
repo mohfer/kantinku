@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Login extends Component
 {
-    public $title = 'Kantinku - Login';
+    public $title = 'Login';
 
     #[Validate('required|email')]
     public $email = '';
@@ -21,7 +21,14 @@ class Login extends Component
 
         if (auth()->attempt($credentials)) {
             session()->regenerate();
-            return redirect()->intended(route('home'));
+
+            $user = auth()->user();
+
+            if ($user->role === 'customer') {
+                return $this->redirectRoute('home', navigate: true);
+            } else {
+                return redirect('/dashboard');
+            }
         }
 
         $this->addError('login', __('auth.failed'));
