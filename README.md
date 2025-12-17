@@ -1,18 +1,80 @@
-# Kantinku
+# 🍽️ Kantinku
 
-Aplikasi pesan makan berbasis Laravel dan Livewire.
+**Kantinku** adalah aplikasi pemesanan makanan kantin yang modern dan mudah digunakan. Dibangun dengan Laravel dan Livewire untuk pengalaman yang cepat dan responsif.
 
-## 🚀 Quick Start
+## 📋 Tentang Aplikasi
+
+Kantinku memudahkan mahasiswa untuk memesan makanan dari kantin kampus tanpa harus mengantri. Merchant/penjual kantin dapat mengelola menu dan pesanan melalui dashboard admin yang powerful menggunakan Filament.
+
+### ✨ Fitur Utama
+
+**Untuk Mahasiswa:**
+
+-   🔐 Autentikasi (Login/Register/Reset Password)
+-   🏪 Browse kantin dan menu makanan
+-   🛒 Keranjang belanja
+-   📦 Riwayat pesanan
+-   🔔 Notifikasi status pesanan
+-   👤 Manajemen profil
+-   💳 Sistem pembayaran terintegrasi
+
+**Untuk Penjual/Admin Kantin:**
+
+-   📊 Dashboard analytics
+-   🍔 Manajemen menu dan kategori
+-   🏬 Manajemen kantin
+-   📋 Manajemen pesanan
+-   👥 Manajemen mahasiswa
+-   💰 Laporan penjualan
+
+### 🛠️ Tech Stack
+
+#### Backend
+
+-   **Framework:** Laravel 12.x
+-   **Language:** PHP 8.2+
+-   **Server:** Laravel Octane with FrankenPHP
+-   **Queue:** Laravel Queue System
+-   **ORM:** Eloquent
+-   **Slugs:** eloquent-sluggable 12.0
+
+#### Frontend
+
+-   **Framework:** Livewire 3.6+
+-   **Styling:** Tailwind CSS 4.1
+-   **JavaScript:** Alpine.js (bundled with Livewire)
+-   **HTTP Client:** Axios
+-   **Build Tool:** Vite 7.0
+
+#### Admin Panel
+
+-   **Dashboard:** Filament 4.0
+
+#### Database
+
+-   **DBMS:** MySQL / MariaDB
+-   **Migrations:** Laravel Migration System
+
+#### Payment & Notifications
+
+-   **Payment Gateway:** Xendit PHP SDK 7.0
+-   **Notifications:** WhatsApp API (WAHA)
+
+## 🚀 Instalasi
+
+### Prerequisites
+
+Pastikan sistem Anda sudah terinstall:
+
+-   PHP >= 8.2
+-   Composer
+-   Node.js & NPM
+-   MySQL/MariaDB
 
 ### 1. Clone Repository
 
-Clone project dari GitHub:
-
 ```bash
-git clone https://github.com/mohfer/kantinku
-```
-
-```bash
+git clone https://github.com/mohfer/kantinku.git
 cd kantinku
 ```
 
@@ -57,58 +119,155 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-### 5. Migrasi Database
+### 5. Konfigurasi Tambahan (Opsional)
 
-Jalankan migrasi untuk membuat tabel database:
+Sesuaikan konfigurasi lainnya di file `.env`:
 
-```bash
-php artisan migrate
+```env
+# Application
+APP_NAME="KantinKu"
+APP_URL=http://localhost:8000
+
+# Queue & Session
+QUEUE_CONNECTION=database
+SESSION_DRIVER=database
+CACHE_STORE=database
+
+# Xendit Payment Gateway
+XENDIT_SECRET_KEY=your_xendit_secret_key
+
+# WhatsApp Notification (WAHA)
+WAHA_API_URL=http://localhost:3000
+WAHA_SESSION=default
+WAHA_API_KEY=your_waha_api_key
+
+# Email (opsional)
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=your_email@gmail.com
+MAIL_PASSWORD=your_app_password
+MAIL_FROM_ADDRESS="hello@kantinku.com"
+
+# Laravel Octane
+OCTANE_SERVER=frankenphp
 ```
 
-### 6. Build & Run
+### 6. Migrasi & Seeder Database
 
-Build assets untuk production:
+Jalankan migrasi dan seeder:
+
+```bash
+php artisan migrate --seed
+```
+
+### 7. Storage Link
+
+Buat symbolic link untuk storage:
+
+```bash
+php artisan storage:link
+```
+
+### 8. Build Assets & Run
+
+Build assets:
 
 ```bash
 npm run build
 ```
 
-Jalankan server Laravel:
+Jalankan development server:
 
 ```bash
 composer run dev
 ```
 
+Atau untuk production dengan FrankenPHP:
+
+```bash
+php artisan octane:start
+```
+
 Buka browser: `http://localhost:8000`
 
-## 🎨 Membuat Komponen Livewire
+## 🔑 Akun Demo
 
-### Contoh: Login Component
+Setelah menjalankan seeder, gunakan akun berikut untuk login:
+
+### Admin Panel (Filament)
+
+-   **URL:** `http://localhost:8000/auth/login`
+-   **Email:** `admin@kantinku.com`
+-   **Password:** `password`
+
+### Mahasiswa
+
+-   **URL:** `http://localhost:8000/auth/login`
+-   **Email:** `budi@example.com`
+-   **Password:** `password`
+
+### Penjual Kantin (Filament)
+
+-   **URL:** `http://localhost:8000/auth/login`
+-   **Email:** `john@example.com`
+-   **Password:** `password`
+
+## 📁 Struktur Folder
+
+```
+kantinku/
+├── app/
+│   ├── Filament/         # Admin panel components
+│   ├── Http/             # Controllers & Middleware
+│   ├── Livewire/         # Livewire components
+│   ├── Models/           # Eloquent models
+│   ├── Notifications/    # Notification classes
+│   └── Services/         # Business logic services
+├── config/               # Configuration files
+├── database/
+│   ├── migrations/       # Database migrations
+│   └── seeders/          # Database seeders
+├── public/               # Public assets
+├── resources/
+│   ├── css/              # Stylesheets
+│   ├── js/               # JavaScript files
+│   └── views/            # Blade templates
+└── routes/               # Application routes
+```
+
+## 🐛 Troubleshooting
+
+### Error: "Class not found"
 
 ```bash
-php artisan make:livewire Login
+composer dump-autoload
 ```
 
-Akan membuat:
-- `app/Livewire/Login.php`
-- `resources/views/livewire/login.blade.php`
-
-### Contoh Lainnya
+### Error: "Permission denied" pada storage
 
 ```bash
-php artisan make:livewire Counter
+chmod -R 775 storage bootstrap/cache
 ```
+
+### Asset tidak muncul
 
 ```bash
-php artisan make:livewire BottomNavigation
+npm run build
+php artisan storage:link
+php artisan optimize:clear
 ```
 
-```bash
-php artisan make:livewire Auth/Register
-```
+### Database connection error
 
-### Cara Pakai
+-   Pastikan MySQL service running
+-   Cek kredensial database di `.env`
+-   Pastikan database sudah dibuat
 
-```blade
-<livewire:login />
-```
+## 🙏 Acknowledgments
+
+-   Laravel Framework
+-   Livewire
+-   Filament PHP
+-   Tailwind CSS
+-   Alpine.js
